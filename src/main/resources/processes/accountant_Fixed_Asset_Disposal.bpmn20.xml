@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.jboss.org/drools" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef" id="Definition" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <process id="accountant_Fixed_Asset_Disposal" name="accountant_Fixed_Asset_Disposal" isExecutable="true" processType="Private" xmlns:tns="http://www.jboss.org/drools" tns:packageName="accountant_Fixed_Asset_Disposal">
+    <documentation>Scope
+
+This procedure covers determining the disposition of and disposing of fixed assets in the fixed asset pool.
+
+This procedure does not cover trading in a fixed asset. Refer to Fixed Asset Request.
+
+Policy
+
+The fixed asset pool
+
+contains fixed assets that are temporarily not in use, but have an expected future use
+is treated as a separate department in the fixed asset database
+is maintained by the facilities department
+is the only department from which fixed assets may be sold (excluding trade-ins), donated, returned to inventory, or discarded
+Fixed assets in (owned by) the fixed asset pool are
+
+located in a secured area
+located in the department from which the fixed asset was transferred (or other appropriate area) when removal to the secured area is impractical or uneconomical
+A Fixed Asset Disposal form must be completed whenever a fixed asset is sold, donated, returned to inventory, or discarded.
+
+A Fixed Asset Itemized Costs form must be completed whenever a fixed asset is sold, donated, returned to inventory, or discarded.
+
+A Check Request form is required to issue a check to pay for the pick-up of a discarded fixed asset (a C.O.D. receipt).
+
+A miscellaneous invoice (that is, a sales/donation receipt) is issued whenever a fixed asset is sold or donated.
+
+When a fixed asset is disposed of
+
+the maximum return must be realized
+it is retired from the fixed asset database
+A company product issued for internal use as a fixed asset
+
+must be inspected before it can be returned to production inventory
+cannot be discarded if the item can be returned to stock
+A fixed asset can only be discarded under the following conditions:
+
+The fixed asset has been fully depreciated.
+The fixed asset cannot be sold or donated.
+The fixed asset cannot be returned to production inventory. (This only applies to fixed assets acquired from production inventory.)
+An asset tag number
+
+is the number used to uniquely identify each fixed asset
+helps reference the fixed asset in the database
+is assigned to each fixed asset after it is placed in service
+may not be reused when a fixed asset is retired
+is assigned by the Accountant responsible for the fixed asset database
+An asset tag
+
+is the identification device bearing the asset tag number
+is permanently affixed (whenever practical) to each fixed asset after it has been placed in service
+is not affixed to a fixed asset when doing so either is physically impossible or would impair the use of the fixed asset
+is removed when the fixed asset is disposed of
+Depreciation of the fixed asset pool is allocated to departments.
+
+Responsibility
+
+The Facilities Manager is responsible for
+
+determining which fixed assets to retain in the fixed asset pool
+managing the fixed asset pool
+making fixed asset disposal arrangements
+The Controller is responsible for
+
+determining the appropriate disposal method for those fixed assets not retained in the fixed asset pool
+determining the financial impact of fixed asset disposals
+The Accountant is responsible for maintaining the fixed asset database.
+
+Distribution
+
+Accountant*
+
+Controller*
+
+Facilities Manager*
+
+Ownership
+
+The General Accounting Manager &lt;e-mail&gt; is responsible for ensuring that this document is necessary and that it reflects actual practice.
+
+Activity Preface
+
+This activity is performed monthly following the close of the general ledger.
+
+The Facilities Manager and Controller determine together which fixed assets in the fixed asset pool should be maintained for use within the company and which should be sold, donated, discarded, or returned to inventory.
+
+The Facilities Manager is the expert on the use and condition of fixed assets.
+
+The Controller is the expert on the financial management of fixed assets based on the company's fiscal policy.</documentation>
+    <startEvent id="_1" name="start-state1"></startEvent>
+    <userTask id="_2" name="1 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>1. Report the contents of the fixed asset pool.</documentation>
+    </userTask>
+    <userTask id="_3" name="2 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>2. Prepare a fixed asset disposal recommendation report.</documentation>
+    </userTask>
+    <userTask id="_4" name="3 | Controller" activiti:candidateGroups="#{actor}">
+      <documentation>3. Determine with the Facilities Manager the disposition of fixed assets in the fixed asset pool.
+
+Decide which fixed assets to retain in the fixed asset pool.
+Indicate on the fixed asset disposal recommendation report those fixed assets being retained.
+Any fixed asset not being retained will be disposed of, and the appropriate disposal method must be decided.
+
+Fixed asset disposal options include:
+
+selling or donating the fixed asset
+discarding the fixed asset
+returning the fixed asset to production inventory
+When a fixed asset is sold, the sales method may determine whether the maximum return is realized.
+
+Only fixed assets acquired from production inventory can be returned to stock.
+
+Determine whether any of the fixed assets were acquired from production inventory.
+Decide whether to return any fixed assets acquired from production inventory.
+This only applies to products manufactured or sold by the company that were acquired (issued) from production inventory for internal use as a fixed asset.
+
+Decide which fixed assets to sell or donate.
+Decide which fixed assets to discard.
+Record the disposition decisions on the fixed asset disposal recommendation report.</documentation>
+    </userTask>
+    <exclusiveGateway id="_5" name="all fixed assets in the fixed asset pool are being retained">
+      <documentation>If all fixed assets in the fixed asset pool are being retained, end of activity. Otherwise, goto task #4.</documentation>
+    </exclusiveGateway>
+    <userTask id="_6" name="4 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>4. Complete a Fixed Asset Disposal form for each fixed asset to be disposed of.
+
+Complete the originator section of a Fixed Asset Disposal form for each fixed asset being discarded, sold, donated, or returned to production inventory.
+Use the annotated fixed asset disposal recommendation report as a source document.
+
+Do not indicate the disposal method until the fixed asset has actually been sold, donated, discarded, or returned to production inventory.</documentation>
+    </userTask>
+    <userTask id="_7" name="5 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>5. Forwards the Fixed Asset Disposal forms to the Accountant responsible for the fixed asset database.</documentation>
+    </userTask>
+    <userTask id="_8" name="6 | Accountant" activiti:candidateGroups="#{actor}">
+      <documentation>6. Provide accounting information for the fixed assets designated for disposal.</documentation>
+    </userTask>
+    <userTask id="_9" name="7 | Accountant" activiti:candidateGroups="#{actor}">
+      <documentation>7. File a copy of each Fixed Asset Disposal form in the fixed assets current activity file, sequenced by department.
+
+The fixed assets current activity file contains documents covering changes to the fixed asset database that are pending or recently completed. The file covers two kinds of activities:
+
+those that have not been completed (for example, fixed assets that have been approved for purchase but not yet placed in service)
+those that have been completed but not yet reviewed as part of the month end transactions (for example, the transfer of a fixed asset from one department to another)
+To ensure that the database is accurate and to follow up on pending actions, the fixed assets current activity file is reviewed at month end. At the conclusion of the review, the documents covering actions that have been completed and verified (for example, purchased fixed assets placed in service and recorded in the database) are transferred to the fixed assets maintenance file.
+
+The documents covering actions that are pending (for example, purchased fixed assets that have not been placed in service) remain in the fixed assets current activity file.
+
+The fixed assets maintenance file is the permanent record of fixed assets activity. This file is organized by fixed asset and provides an audit trail for each fixed asset.</documentation>
+    </userTask>
+    <userTask id="_10" name="8 | Accountant" activiti:candidateGroups="#{actor}">
+      <documentation>8. Return the original Fixed Asset Disposal forms to the Facilities Manager.</documentation>
+    </userTask>
+    <userTask id="_11" name="9 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>9. Obtain the required approvals.
+
+The Controller and the Vice President of Finance must sign each Fixed Asset Disposal.
+
+You will sign the form after the actual disposal arrangements are made.
+
+The Accountant will sign the form after the fixed asset is disposed of and the fixed asset database is updated.</documentation>
+    </userTask>
+    <exclusiveGateway id="_12" name="fixed assets are being sold or donated">
+      <documentation>If fixed assets are being sold or donated, goto task #10. Otherwise, goto task #15.</documentation>
+    </exclusiveGateway>
+    <userTask id="_13" name="10 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>10.    Make sale arrangements, as needed.
+
+Notify potential purchasers to determine their interest in purchasing the fixed asset.
+This may involve contacting the purchaser directly, holding an auction, or advertising the sale of the fixed asset.
+
+Negotiate the selling price with the purchaser.
+Determine the payment terms with the purchaser.
+Unless credit terms have been pre-arranged and approved for the purchaser, fixed assets are sold on a cash only basis. Cash sales include cash-and-carry, cash-on-delivery, or freight-collect payment terms.
+
+Determine whether the fixed asset will be shipped to or picked up by the purchaser.
+The purchaser is responsible for all freight charges.
+
+Record the sales arrangement on the Fixed Asset Disposal form.
+Sign the Fixed Asset Disposal form.</documentation>
+    </userTask>
+    <userTask id="_14" name="11 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>11.    Make donation arrangements, as needed.
+
+Notify potential donees to determine their interest in acquiring the fixed asset.
+Determine whether the fixed asset will be shipped to or picked up by the donee.
+Record the donation arrangement on the Fixed Asset Disposal form.
+Sign the Fixed Asset Disposal form.
+A miscellaneous invoice is issued for each donation. This document serves as a donation receipt for both the donee and the company.</documentation>
+    </userTask>
+    <userTask id="_15" name="12 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>12.    Release fixed assets to the purchaser or donee as required.
+
+This task is performed when fixed assets are picked up, rather than shipped.
+
+Attach a copy of the miscellaneous invoice (that is, the sales receipt) to the Fixed Asset Disposal form.
+You should have received the miscellaneous invoice from the Accounts Receivable Clerk.
+
+The sales amount is $0.00 for any fixed asset that is donated.
+
+Give the original miscellaneous invoice and the fixed asset to the purchaser.
+Cash-and-carry sale
+
+Obtain payment from the purchaser.
+The payment should be forwarded to the Accounts Receivable Clerk who issued the miscellaneous invoice.</documentation>
+    </userTask>
+    <userTask id="_16" name="13 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>13.    Complete a Shipping Authorization for each fixed asset that is being shipped to a purchaser or donee.</documentation>
+    </userTask>
+    <userTask id="_17" name="14 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>14.    Move the sold and donated fixed assets to the shipping department, as needed.
+
+Record the Shipping Authorization number on the Fixed Asset Disposal form.
+Attach a copy of the Fixed Asset Disposal form to the original Shipping Authorization form.
+Attach the miscellaneous invoice to the fixed asset, as needed.
+The Accounts Receivable Clerk should have delivered a miscellaneous invoice to the Facilities Manager for each C.O.D. and freight collect sale.
+
+Miscellaneous invoices are mailed separately for fixed assets shipped to a purchaser having credit arrangements with the company or to a donee.
+
+Move the fixed asset to the shipping department.
+The original Shipping Authorization form, a copy of the Fixed Asset Disposal form, and (if applicable) the miscellaneous invoice should be attached to the fixed asset.</documentation>
+    </userTask>
+    <userTask id="_18" name="15 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>15.    Determine whether any fixed assets are being returned to production inventory.</documentation>
+    </userTask>
+    <exclusiveGateway id="_19" name="fixed assets are being returned to production inventory">
+      <documentation>If fixed assets are being returned to production inventory, goto task #16. Otherwise, goto task #17.</documentation>
+    </exclusiveGateway>
+    <userTask id="_20" name="16 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>16.    Record the disposition on the Fixed Asset Disposal form.
+
+Indicate that the fixed asset is being returned to production inventory.
+Record the stock location to which the fixed asset is being returned.
+Any item returned to production inventory is inspected and may be reworked or regraded before the item is returned to stock.
+
+Sign the Fixed Asset Disposal form.
+Stop and complete Transferring Material - Nonproduction Use.</documentation>
+    </userTask>
+    <userTask id="_21" name="17 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>17.    Determine whether any fixed assets are being discarded.</documentation>
+    </userTask>
+    <userTask id="_22" name="18 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>18.    Determine the disposal method.
+
+Determine whether to discard the fixed asset in the dumpster or whether disposal services are required.
+Indicate on the Fixed Asset Disposal form that the fixed asset is being discarded.
+Sign the Fixed Asset Disposal form.
+Disposal services required
+
+Contact the refuse disposal company to make the disposal arrangements.
+Determine the disposal costs, as needed.
+Record the disposal arrangements on the Fixed Asset Disposal form.</documentation>
+    </userTask>
+    <exclusiveGateway id="_23" name="disposal services are required">
+      <documentation>If disposal services are required, goto task #19. Otherwise, goto task #20.</documentation>
+    </exclusiveGateway>
+    <userTask id="_24" name="19 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>19.    Submit a check request for the disposal service.
+
+Fill out a Check Request form.
+Obtain the required approval signatures on the Check Request form.
+Hand-carry the check request to the Accounts Payable Supervisor.
+Stop and complete Processing Manual Checks.</documentation>
+    </userTask>
+    <exclusiveGateway id="_25" name="disposal services were used">
+      <documentation>If disposal services were used, goto task #21. Otherwise, goto task #22.</documentation>
+    </exclusiveGateway>
+    <userTask id="_26" name="20 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>20.    Discard the fixed asset.
+
+Disposal services not required
+
+Place the fixed asset in the appropriate dumpster or discard area.
+Disposal services required
+
+Release the fixed asset to the refuse disposal company.
+Give the check to the representative of the refuse disposal company who picks up the discarded fixed asset.
+Obtain a receipt from the representative of the refuse disposal company.
+The receipt should be marked PAID.</documentation>
+    </userTask>
+    <userTask id="_27" name="21 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>21.    Forward the receipt for the disposal service to the accounts payable department.
+
+Retain a copy of the receipt.
+Forward the original receipt to Accounts Payable.</documentation>
+    </userTask>
+    <userTask id="_28" name="22 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>22.    Complete a Fixed Asset Itemized Costs form.
+
+Complete a Fixed Asset Itemized Costs form for each disposed fixed asset.
+Attach the Fixed Asset Itemized Costs form and all support documents to the corresponding original Fixed Asset Disposal form.
+Support documents include:
+
+a copy of the miscellaneous invoice (that is, sales receipt) for each fixed asset that was sold or donated
+a copy of the Shipping Authorization for each fixed asset shipped to a purchaser or donee
+a copy of the Material Requisitionform or the Shipping Authorization for each fixed asset returned to production inventory
+a copy of the disposal service receipt for each fixed asset released to a refuse disposal company</documentation>
+    </userTask>
+    <exclusiveGateway id="_29" name="fixed assets were returned to production inventory">
+      <documentation>If fixed assets were returned to production inventory, goto task #25. Otherwise, goto task #26.</documentation>
+    </exclusiveGateway>
+    <userTask id="_30" name="23 | Facilities Manager" activiti:candidateGroups="#{actor}">
+      <documentation>23.    Forward the fixed asset disposal documentation to the Accountant responsible for the fixed asset database.
+
+Forward the original Fixed Asset Disposal forms, Fixed Asset Itemized Costs forms, and support documents.</documentation>
+    </userTask>
+    <userTask id="_31" name="24 | Accountant" activiti:candidateGroups="#{actor}">
+      <documentation>24.    Update the fixed asset database.
+
+Verify that the Fixed Asset Disposal form is accurate.
+Compare the original copy of the Fixed Asset Disposal form with the copy filed in the current activity file, sequenced by department.
+
+Contact the Facilities Manager (as well as the Controller, Accounts Receivable Supervisor, or Shipping Supervisor), as required, to resolve discrepancies.
+
+Record additional information and corrections on the Fixed Asset Disposal form and the Fixed Asset Itemized Costs form, as needed.
+
+Refer to Calculating Gains and Losses for Retirements.
+
+Run the Gain/Loss Program (calculate the partial-period depreciation, adjusted book value and any gain or loss).</documentation>
+    </userTask>
+    <userTask id="_32" name="25 | Accountant" activiti:candidateGroups="#{actor}">
+      <documentation>25.    Submit a Journal Entry form for each fixed asset returned to production inventory.
+
+Complete the Journal Entry forms.
+The purpose of the journal entry is to ensure that the remaining value of the retired fixed asset is credited to the fixed asset account and debited to the appropriate production inventory account. Refer to Processing Manual Journal Entries.
+
+Sign the Journal Entry form.
+Forward the form(s) to the General Accounting Manager.</documentation>
+    </userTask>
+    <userTask id="_33" name="26 | Accountant" activiti:candidateGroups="#{actor}">
+      <documentation>26.    File the fixed asset disposal documentation.
+
+Sign the original Fixed Asset Disposal form.
+Attach the file copy of the Fixed Asset Disposal form to the original Fixed Asset Disposal form, the Fixed Asset Itemized Costs form, and the support documents.
+File these documents in the fixed assets current activity file, sequenced by department.</documentation>
+    </userTask>
+    <userTask id="_34" name="Processing Manual Checks | subprocess" activiti:candidateGroups="#{actor}">
+      <documentation>Stop and complete Processing Manual Checks.</documentation>
+    </userTask>
+    <exclusiveGateway id="_35" name="fixed assets are being discarded">
+      <documentation>If fixed assets are being discarded, goto task #18. Otherwise, goto task #22.</documentation>
+    </exclusiveGateway>
+    <userTask id="_36" name="Processing Manual Journal Entries | subprocess" activiti:candidateGroups="#{actor}">
+      <documentation>Goto Processing Manual Journal Entries, as needed.</documentation>
+    </userTask>
+    <userTask id="_37" name="Miscellaneous Invoicing | sp" activiti:candidateGroups="#{actor}">
+      <documentation>Stop and complete Miscellaneous Invoicing.</documentation>
+    </userTask>
+    <endEvent id="_38" name="end-state1"></endEvent>
+    <parallelGateway id="_39" name="Gateway-15 Facilities Manager">
+      <documentation>If fixed assets are being returned to production inventory, goto task #16. Otherwise, goto task #17.</documentation>
+    </parallelGateway>
+    <parallelGateway id="_40" name="Gateway-17 Facilities Manager"></parallelGateway>
+    <parallelGateway id="_41" name="Gateway-20 Facilities Manager"></parallelGateway>
+    <parallelGateway id="_42" name="Gateway-22 Facilities Manager"></parallelGateway>
+    <parallelGateway id="_43" name="Gateway-26 Accountant"></parallelGateway>
+    <parallelGateway id="_44" name="Gateway-end-state1"></parallelGateway>
+    <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2"></sequenceFlow>
+    <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3"></sequenceFlow>
+    <sequenceFlow id="_3-_4" sourceRef="_3" targetRef="_4"></sequenceFlow>
+    <sequenceFlow id="_4-_5" sourceRef="_4" targetRef="_5"></sequenceFlow>
+    <sequenceFlow id="_5-_6" sourceRef="_5" targetRef="_6">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_6-_7" sourceRef="_6" targetRef="_7"></sequenceFlow>
+    <sequenceFlow id="_7-_8" sourceRef="_7" targetRef="_8"></sequenceFlow>
+    <sequenceFlow id="_8-_9" sourceRef="_8" targetRef="_9"></sequenceFlow>
+    <sequenceFlow id="_9-_10" sourceRef="_9" targetRef="_10"></sequenceFlow>
+    <sequenceFlow id="_10-_11" sourceRef="_10" targetRef="_11"></sequenceFlow>
+    <sequenceFlow id="_11-_12" sourceRef="_11" targetRef="_12"></sequenceFlow>
+    <sequenceFlow id="_12-_13" sourceRef="_12" targetRef="_13">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_13-_14" sourceRef="_13" targetRef="_14"></sequenceFlow>
+    <sequenceFlow id="_37-_15" sourceRef="_37" targetRef="_15"></sequenceFlow>
+    <sequenceFlow id="_15-_16" sourceRef="_15" targetRef="_16"></sequenceFlow>
+    <sequenceFlow id="_16-_17" sourceRef="_16" targetRef="_17"></sequenceFlow>
+    <sequenceFlow id="_39-_18" sourceRef="_39" targetRef="_18"></sequenceFlow>
+    <sequenceFlow id="_18-_19" sourceRef="_18" targetRef="_19"></sequenceFlow>
+    <sequenceFlow id="_19-_20" sourceRef="_19" targetRef="_20">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_40-_21" sourceRef="_40" targetRef="_21"></sequenceFlow>
+    <sequenceFlow id="_35-_22" sourceRef="_35" targetRef="_22">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_22-_23" sourceRef="_22" targetRef="_23"></sequenceFlow>
+    <sequenceFlow id="_23-_24" sourceRef="_23" targetRef="_24">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_26-_25" sourceRef="_26" targetRef="_25"></sequenceFlow>
+    <sequenceFlow id="_41-_26" sourceRef="_41" targetRef="_26"></sequenceFlow>
+    <sequenceFlow id="_25-_27" sourceRef="_25" targetRef="_27">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_42-_28" sourceRef="_42" targetRef="_28"></sequenceFlow>
+    <sequenceFlow id="_31-_29" sourceRef="_31" targetRef="_29"></sequenceFlow>
+    <sequenceFlow id="_28-_30" sourceRef="_28" targetRef="_30"></sequenceFlow>
+    <sequenceFlow id="_30-_31" sourceRef="_30" targetRef="_31"></sequenceFlow>
+    <sequenceFlow id="_29-_32" sourceRef="_29" targetRef="_32">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == true}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_43-_33" sourceRef="_43" targetRef="_33"></sequenceFlow>
+    <sequenceFlow id="_24-_34" sourceRef="_24" targetRef="_34"></sequenceFlow>
+    <sequenceFlow id="_21-_35" sourceRef="_21" targetRef="_35"></sequenceFlow>
+    <sequenceFlow id="_33-_36" sourceRef="_33" targetRef="_36"></sequenceFlow>
+    <sequenceFlow id="_14-_37" sourceRef="_14" targetRef="_37"></sequenceFlow>
+    <sequenceFlow id="_44-_38" sourceRef="_44" targetRef="_38"></sequenceFlow>
+    <sequenceFlow id="_12-_39" sourceRef="_12" targetRef="_39">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_17-_39" sourceRef="_17" targetRef="_39"></sequenceFlow>
+    <sequenceFlow id="_19-_40" sourceRef="_19" targetRef="_40">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_20-_40" sourceRef="_20" targetRef="_20.1"></sequenceFlow>
+    <sequenceFlow id="_23-_41" sourceRef="_23" targetRef="_41">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_34-_41" sourceRef="_34" targetRef="_41"></sequenceFlow>
+    <sequenceFlow id="_25-_42" sourceRef="_25" targetRef="_42">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_27-_42" sourceRef="_27" targetRef="_42"></sequenceFlow>
+    <sequenceFlow id="_35-_42" sourceRef="_35" targetRef="_42">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_29-_43" sourceRef="_29" targetRef="_43">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_32-_43" sourceRef="_32" targetRef="_43"></sequenceFlow>
+    <sequenceFlow id="_5-_44" sourceRef="_5" targetRef="_44">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_36-_44" sourceRef="_36" targetRef="_44"></sequenceFlow>
+    <userTask id="_20.1" name="Transferring Material - Nonproduction Use | subprocess">
+      <documentation>Transferring Material - Nonproduction Use</documentation>
+    </userTask>
+    <sequenceFlow id="flow1" sourceRef="_20.1" targetRef="_40"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_accountant_Fixed_Asset_Disposal">
+    <bpmndi:BPMNPlane bpmnElement="accountant_Fixed_Asset_Disposal" id="BPMNPlane_accountant_Fixed_Asset_Disposal">
+      <bpmndi:BPMNShape bpmnElement="_1" id="BPMNShape__1">
+        <omgdc:Bounds height="48.0" width="48.0" x="549.0" y="16.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2" id="BPMNShape__2">
+        <omgdc:Bounds height="55.0" width="205.0" x="496.0" y="96.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" id="BPMNShape__3">
+        <omgdc:Bounds height="55.0" width="212.0" x="499.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" id="BPMNShape__4">
+        <omgdc:Bounds height="55.0" width="194.0" x="507.0" y="232.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" id="BPMNShape__5">
+        <omgdc:Bounds height="48.0" width="48.0" x="549.0" y="300.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="BPMNShape__6">
+        <omgdc:Bounds height="55.0" width="265.0" x="366.0" y="381.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" id="BPMNShape__7">
+        <omgdc:Bounds height="55.0" width="275.0" x="366.0" y="449.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" id="BPMNShape__8">
+        <omgdc:Bounds height="55.0" width="265.0" x="366.0" y="517.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9" id="BPMNShape__9">
+        <omgdc:Bounds height="55.0" width="265.0" x="366.0" y="585.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_10" id="BPMNShape__10">
+        <omgdc:Bounds height="55.0" width="265.0" x="366.0" y="653.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_11" id="BPMNShape__11">
+        <omgdc:Bounds height="55.0" width="265.0" x="366.0" y="721.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12" id="BPMNShape__12">
+        <omgdc:Bounds height="48.0" width="48.0" x="432.0" y="789.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_13" id="BPMNShape__13">
+        <omgdc:Bounds height="55.0" width="236.0" x="261.0" y="870.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_14" id="BPMNShape__14">
+        <omgdc:Bounds height="55.0" width="233.0" x="257.0" y="938.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_15" id="BPMNShape__15">
+        <omgdc:Bounds height="55.0" width="230.0" x="260.0" y="1074.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_16" id="BPMNShape__16">
+        <omgdc:Bounds height="55.0" width="226.0" x="265.0" y="1142.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_17" id="BPMNShape__17">
+        <omgdc:Bounds height="55.0" width="223.0" x="274.0" y="1210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_18" id="BPMNShape__18">
+        <omgdc:Bounds height="55.0" width="192.0" x="370.0" y="1359.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_19" id="BPMNShape__19">
+        <omgdc:Bounds height="48.0" width="48.0" x="423.0" y="1427.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_20" id="BPMNShape__20">
+        <omgdc:Bounds height="55.0" width="232.0" x="80.0" y="1473.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_21" id="BPMNShape__21">
+        <omgdc:Bounds height="55.0" width="206.0" x="341.0" y="1657.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_22" id="BPMNShape__22">
+        <omgdc:Bounds height="55.0" width="205.0" x="222.0" y="1806.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23" id="BPMNShape__23">
+        <omgdc:Bounds height="48.0" width="48.0" x="289.0" y="1874.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_24" id="BPMNShape__24">
+        <omgdc:Bounds height="55.0" width="227.0" x="111.0" y="1955.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_25" id="BPMNShape__25">
+        <omgdc:Bounds height="48.0" width="48.0" x="337.0" y="2240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_26" id="BPMNShape__26">
+        <omgdc:Bounds height="55.0" width="218.0" x="169.0" y="2160.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_27" id="BPMNShape__27">
+        <omgdc:Bounds height="55.0" width="211.0" x="108.0" y="2321.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_28" id="BPMNShape__28">
+        <omgdc:Bounds height="55.0" width="195.0" x="326.0" y="2470.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_29" id="BPMNShape__29">
+        <omgdc:Bounds height="48.0" width="48.0" x="386.0" y="2674.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_30" id="BPMNShape__30">
+        <omgdc:Bounds height="55.0" width="205.0" x="326.0" y="2538.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_31" id="BPMNShape__31">
+        <omgdc:Bounds height="55.0" width="221.0" x="326.0" y="2606.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_32" id="BPMNShape__32">
+        <omgdc:Bounds height="55.0" width="194.0" x="190.0" y="2755.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_33" id="BPMNShape__33">
+        <omgdc:Bounds height="55.0" width="175.0" x="280.0" y="2904.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_34" id="BPMNShape__34">
+        <omgdc:Bounds height="55.0" width="316.0" x="16.0" y="2023.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_35" id="BPMNShape__35">
+        <omgdc:Bounds height="48.0" width="48.0" x="407.0" y="1725.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_36" id="BPMNShape__36">
+        <omgdc:Bounds height="55.0" width="301.0" x="230.0" y="2991.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_37" id="BPMNShape__37">
+        <omgdc:Bounds height="55.0" width="240.0" x="250.0" y="1006.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_38" id="BPMNShape__38">
+        <omgdc:Bounds height="48.0" width="48.0" x="591.0" y="3120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_39" id="BPMNShape__39">
+        <omgdc:Bounds height="48.0" width="48.0" x="423.0" y="1278.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_40" id="BPMNShape__40">
+        <omgdc:Bounds height="48.0" width="48.0" x="407.0" y="1576.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_41" id="BPMNShape__41">
+        <omgdc:Bounds height="48.0" width="48.0" x="297.0" y="2091.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_42" id="BPMNShape__42">
+        <omgdc:Bounds height="48.0" width="48.0" x="407.0" y="2390.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_43" id="BPMNShape__43">
+        <omgdc:Bounds height="48.0" width="48.0" x="365.0" y="2823.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_44" id="BPMNShape__44">
+        <omgdc:Bounds height="48.0" width="48.0" x="584.0" y="3030.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_20.1" id="BPMNShape__20.1">
+        <omgdc:Bounds height="55.0" width="240.0" x="80.0" y="1569.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_1-_2" id="BPMNEdge__1-_2">
+        <omgdi:waypoint x="573.0" y="64.0"></omgdi:waypoint>
+        <omgdi:waypoint x="598.0" y="96.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2-_3" id="BPMNEdge__2-_3">
+        <omgdi:waypoint x="598.0" y="151.0"></omgdi:waypoint>
+        <omgdi:waypoint x="605.0" y="164.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_3-_4" id="BPMNEdge__3-_4">
+        <omgdi:waypoint x="605.0" y="219.0"></omgdi:waypoint>
+        <omgdi:waypoint x="604.0" y="232.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-_5" id="BPMNEdge__4-_5">
+        <omgdi:waypoint x="604.0" y="287.0"></omgdi:waypoint>
+        <omgdi:waypoint x="573.0" y="300.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_5-_6" id="BPMNEdge__5-_6">
+        <omgdi:waypoint x="573.0" y="348.0"></omgdi:waypoint>
+        <omgdi:waypoint x="498.0" y="381.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_6-_7" id="BPMNEdge__6-_7">
+        <omgdi:waypoint x="498.0" y="436.0"></omgdi:waypoint>
+        <omgdi:waypoint x="503.0" y="449.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7-_8" id="BPMNEdge__7-_8">
+        <omgdi:waypoint x="503.0" y="504.0"></omgdi:waypoint>
+        <omgdi:waypoint x="498.0" y="517.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8-_9" id="BPMNEdge__8-_9">
+        <omgdi:waypoint x="498.0" y="572.0"></omgdi:waypoint>
+        <omgdi:waypoint x="498.0" y="585.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9-_10" id="BPMNEdge__9-_10">
+        <omgdi:waypoint x="498.0" y="640.0"></omgdi:waypoint>
+        <omgdi:waypoint x="498.0" y="653.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10-_11" id="BPMNEdge__10-_11">
+        <omgdi:waypoint x="498.0" y="708.0"></omgdi:waypoint>
+        <omgdi:waypoint x="498.0" y="721.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_11-_12" id="BPMNEdge__11-_12">
+        <omgdi:waypoint x="498.0" y="776.0"></omgdi:waypoint>
+        <omgdi:waypoint x="456.0" y="789.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12-_13" id="BPMNEdge__12-_13">
+        <omgdi:waypoint x="456.0" y="837.0"></omgdi:waypoint>
+        <omgdi:waypoint x="379.0" y="870.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_13-_14" id="BPMNEdge__13-_14">
+        <omgdi:waypoint x="379.0" y="925.0"></omgdi:waypoint>
+        <omgdi:waypoint x="373.0" y="938.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_37-_15" id="BPMNEdge__37-_15">
+        <omgdi:waypoint x="370.0" y="1061.0"></omgdi:waypoint>
+        <omgdi:waypoint x="375.0" y="1074.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15-_16" id="BPMNEdge__15-_16">
+        <omgdi:waypoint x="375.0" y="1129.0"></omgdi:waypoint>
+        <omgdi:waypoint x="378.0" y="1142.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_16-_17" id="BPMNEdge__16-_17">
+        <omgdi:waypoint x="378.0" y="1197.0"></omgdi:waypoint>
+        <omgdi:waypoint x="385.0" y="1210.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_39-_18" id="BPMNEdge__39-_18">
+        <omgdi:waypoint x="447.0" y="1326.0"></omgdi:waypoint>
+        <omgdi:waypoint x="466.0" y="1359.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_18-_19" id="BPMNEdge__18-_19">
+        <omgdi:waypoint x="466.0" y="1414.0"></omgdi:waypoint>
+        <omgdi:waypoint x="447.0" y="1427.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_19-_20" id="BPMNEdge__19-_20">
+        <omgdi:waypoint x="423.0" y="1451.0"></omgdi:waypoint>
+        <omgdi:waypoint x="196.0" y="1473.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_40-_21" id="BPMNEdge__40-_21">
+        <omgdi:waypoint x="431.0" y="1624.0"></omgdi:waypoint>
+        <omgdi:waypoint x="444.0" y="1657.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_35-_22" id="BPMNEdge__35-_22">
+        <omgdi:waypoint x="431.0" y="1773.0"></omgdi:waypoint>
+        <omgdi:waypoint x="324.0" y="1806.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_22-_23" id="BPMNEdge__22-_23">
+        <omgdi:waypoint x="324.0" y="1861.0"></omgdi:waypoint>
+        <omgdi:waypoint x="313.0" y="1874.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23-_24" id="BPMNEdge__23-_24">
+        <omgdi:waypoint x="313.0" y="1922.0"></omgdi:waypoint>
+        <omgdi:waypoint x="224.0" y="1955.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_26-_25" id="BPMNEdge__26-_25">
+        <omgdi:waypoint x="278.0" y="2215.0"></omgdi:waypoint>
+        <omgdi:waypoint x="361.0" y="2240.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_41-_26" id="BPMNEdge__41-_26">
+        <omgdi:waypoint x="321.0" y="2139.0"></omgdi:waypoint>
+        <omgdi:waypoint x="278.0" y="2160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_25-_27" id="BPMNEdge__25-_27">
+        <omgdi:waypoint x="361.0" y="2288.0"></omgdi:waypoint>
+        <omgdi:waypoint x="213.0" y="2321.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_42-_28" id="BPMNEdge__42-_28">
+        <omgdi:waypoint x="431.0" y="2438.0"></omgdi:waypoint>
+        <omgdi:waypoint x="423.0" y="2470.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_31-_29" id="BPMNEdge__31-_29">
+        <omgdi:waypoint x="436.0" y="2661.0"></omgdi:waypoint>
+        <omgdi:waypoint x="410.0" y="2674.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_28-_30" id="BPMNEdge__28-_30">
+        <omgdi:waypoint x="423.0" y="2525.0"></omgdi:waypoint>
+        <omgdi:waypoint x="428.0" y="2538.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_30-_31" id="BPMNEdge__30-_31">
+        <omgdi:waypoint x="428.0" y="2593.0"></omgdi:waypoint>
+        <omgdi:waypoint x="436.0" y="2606.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_29-_32" id="BPMNEdge__29-_32">
+        <omgdi:waypoint x="410.0" y="2722.0"></omgdi:waypoint>
+        <omgdi:waypoint x="287.0" y="2755.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_43-_33" id="BPMNEdge__43-_33">
+        <omgdi:waypoint x="389.0" y="2871.0"></omgdi:waypoint>
+        <omgdi:waypoint x="367.0" y="2904.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_24-_34" id="BPMNEdge__24-_34">
+        <omgdi:waypoint x="224.0" y="2010.0"></omgdi:waypoint>
+        <omgdi:waypoint x="174.0" y="2023.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_21-_35" id="BPMNEdge__21-_35">
+        <omgdi:waypoint x="444.0" y="1712.0"></omgdi:waypoint>
+        <omgdi:waypoint x="431.0" y="1725.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_33-_36" id="BPMNEdge__33-_36">
+        <omgdi:waypoint x="367.0" y="2959.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="2991.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_14-_37" id="BPMNEdge__14-_37">
+        <omgdi:waypoint x="373.0" y="993.0"></omgdi:waypoint>
+        <omgdi:waypoint x="370.0" y="1006.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_44-_38" id="BPMNEdge__44-_38">
+        <omgdi:waypoint x="608.0" y="3078.0"></omgdi:waypoint>
+        <omgdi:waypoint x="615.0" y="3120.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12-_39" id="BPMNEdge__12-_39">
+        <omgdi:waypoint x="456.0" y="837.0"></omgdi:waypoint>
+        <omgdi:waypoint x="447.0" y="1278.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_17-_39" id="BPMNEdge__17-_39">
+        <omgdi:waypoint x="385.0" y="1265.0"></omgdi:waypoint>
+        <omgdi:waypoint x="447.0" y="1278.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_19-_40" id="BPMNEdge__19-_40">
+        <omgdi:waypoint x="447.0" y="1475.0"></omgdi:waypoint>
+        <omgdi:waypoint x="431.0" y="1576.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_20-_40" id="BPMNEdge__20-_40">
+        <omgdi:waypoint x="196.0" y="1528.0"></omgdi:waypoint>
+        <omgdi:waypoint x="200.0" y="1569.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23-_41" id="BPMNEdge__23-_41">
+        <omgdi:waypoint x="313.0" y="1922.0"></omgdi:waypoint>
+        <omgdi:waypoint x="321.0" y="2091.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_34-_41" id="BPMNEdge__34-_41">
+        <omgdi:waypoint x="174.0" y="2078.0"></omgdi:waypoint>
+        <omgdi:waypoint x="321.0" y="2091.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_25-_42" id="BPMNEdge__25-_42">
+        <omgdi:waypoint x="361.0" y="2288.0"></omgdi:waypoint>
+        <omgdi:waypoint x="431.0" y="2390.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_27-_42" id="BPMNEdge__27-_42">
+        <omgdi:waypoint x="213.0" y="2376.0"></omgdi:waypoint>
+        <omgdi:waypoint x="431.0" y="2390.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_35-_42" id="BPMNEdge__35-_42">
+        <omgdi:waypoint x="431.0" y="1773.0"></omgdi:waypoint>
+        <omgdi:waypoint x="431.0" y="2390.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_29-_43" id="BPMNEdge__29-_43">
+        <omgdi:waypoint x="410.0" y="2722.0"></omgdi:waypoint>
+        <omgdi:waypoint x="389.0" y="2823.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_32-_43" id="BPMNEdge__32-_43">
+        <omgdi:waypoint x="287.0" y="2810.0"></omgdi:waypoint>
+        <omgdi:waypoint x="389.0" y="2823.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_5-_44" id="BPMNEdge__5-_44">
+        <omgdi:waypoint x="573.0" y="348.0"></omgdi:waypoint>
+        <omgdi:waypoint x="608.0" y="3030.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_36-_44" id="BPMNEdge__36-_44">
+        <omgdi:waypoint x="531.0" y="3018.0"></omgdi:waypoint>
+        <omgdi:waypoint x="608.0" y="3030.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="320.0" y="1596.0"></omgdi:waypoint>
+        <omgdi:waypoint x="407.0" y="1600.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
