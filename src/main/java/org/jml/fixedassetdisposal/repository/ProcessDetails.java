@@ -1,10 +1,15 @@
 package org.jml.fixedassetdisposal.repository;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+import javax.persistence.Basic;
 
 @Entity
+@Table(name="processdetails")
 public class ProcessDetails {
 
     @Id
@@ -15,47 +20,42 @@ public class ProcessDetails {
 
     private String procidinstance;
 
-    private String phoneNumber;
+    private String cbody;
 
     public ProcessDetails() {
 
     }
 
-    public ProcessDetails(String name, String email, String phoneNumber) {
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+    public ProcessDetails(String procid, String procidinstance, String cbody) {
+        this.procid = procid;
+        this.procidinstance = procidinstance;
+        this.cbody = cbody;
     }
 
-    public Long getId() {
-        return id;
+    public String getProcid() {
+        return procid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProcid(String procid) {
+        this.procid = procid;
     }
 
-    public String getName() {
-        return name;
+    public String getProcidinstance() {
+        return procidinstance;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProcidinstance(String procidinstance) {
+        this.procidinstance = procidinstance;
     }
 
-    public String getEmail() {
-        return email;
+    @Lob
+    @Column(name="cbody", columnDefinition="CLOB NOT NULL")
+    public String getCbody() {
+        return cbody;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCbody(String cbody) {
+        this.cbody = cbody;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 }
