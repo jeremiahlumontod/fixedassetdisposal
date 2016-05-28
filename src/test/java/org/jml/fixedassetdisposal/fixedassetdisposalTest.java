@@ -7,7 +7,7 @@ import org.activiti.engine.history.HistoricProcessInstance;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.jml.fixedassetdisposal.repository.BPMApp;
-import org.jml.fixedassetdisposal.repository.BPMRepository;
+import org.jml.fixedassetdisposal.repository.BpmRepository;
 import org.jml.fixedassetdisposal.repository.ProcessDetails;
 import org.junit.After;
 import org.junit.Assert;
@@ -43,7 +43,7 @@ public class fixedassetdisposalTest {
     private HistoryService historyService;
 
     @Autowired
-    private BPMRepository bpmRepository;
+    private BpmRepository bpmRepository;
 
     private Wiser wiser;
 
@@ -113,6 +113,7 @@ public class fixedassetdisposalTest {
         }
 
         String s = doc.saveToString(true);
+        processDetails.setCbody(s);
 
         bpmRepository.save(processDetails);
 
@@ -140,6 +141,32 @@ public class fixedassetdisposalTest {
             System.out.println("task.getId():" + task.getId() + ", " + "task.getName():" + task.getName());
         }
 
+    }
+
+
+
+    @Test
+    public void checkProcessInstance() {
+        checkProcessInstanceTask("25001");
+
+    }
+
+    public void checkProcessInstanceTask(String procID) {
+        List<Task> tasks = taskService.createTaskQuery()
+                .processInstanceId(procID)
+                .orderByTaskName().asc()
+                .list();
+        String s = null;
+        if(tasks==null) {
+            s = "process finished";
+        }
+        if(tasks.size()< 1) {
+            s = "process finished";
+        }
+        if(tasks.size()>0) {
+            s = "process not finish";
+        }
+        System.out.println("process status: " + s);
     }
 
 }

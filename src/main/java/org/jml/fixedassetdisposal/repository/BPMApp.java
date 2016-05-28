@@ -1,7 +1,12 @@
 package org.jml.fixedassetdisposal.repository;
 
+import org.activiti.engine.IdentityService;
+import org.activiti.engine.identity.Group;
+import org.activiti.engine.identity.User;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class BPMApp {
@@ -28,7 +33,7 @@ public class BPMApp {
 //
 //    }
 
-    /**@Bean //activate during initial creation of schema or new user needs to be entered
+    @Bean //activate during initial creation of schema or new user needs to be entered
     InitializingBean usersAndGroupsInitializer(final IdentityService identityService) {
 
         return new InitializingBean() {
@@ -45,6 +50,6 @@ public class BPMApp {
 
             }
         };
-    }*/
+    }
 
 }

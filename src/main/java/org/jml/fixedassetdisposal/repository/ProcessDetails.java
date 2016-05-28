@@ -8,6 +8,8 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Basic;
 
+import static javax.persistence.FetchType.LAZY;
+
 @Entity
 @Table(name="processdetails")
 public class ProcessDetails {
@@ -20,6 +22,9 @@ public class ProcessDetails {
 
     private String procidinstance;
 
+    //@Lob
+    //@Column(name="cbody", columnDefinition="LONGTEXT")
+    @Lob @Basic(fetch=LAZY)
     private String cbody;
 
     public ProcessDetails() {
@@ -48,8 +53,6 @@ public class ProcessDetails {
         this.procidinstance = procidinstance;
     }
 
-    @Lob
-    @Column(name="cbody", columnDefinition="CLOB NOT NULL")
     public String getCbody() {
         return cbody;
     }
