@@ -33,7 +33,7 @@ public class BPMApp {
 //
 //    }
 
-    @Bean //activate during initial creation of schema or new user needs to be entered
+    /**@Bean //activate during initial creation of schema or new user needs to be entered
     InitializingBean usersAndGroupsInitializer(final IdentityService identityService) {
 
         return new InitializingBean() {
@@ -50,6 +50,6 @@ public class BPMApp {
 
             }
         };
-    }
+    }*/
 
 }

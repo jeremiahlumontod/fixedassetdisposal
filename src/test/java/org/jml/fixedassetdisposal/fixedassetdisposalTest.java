@@ -70,7 +70,77 @@ public class fixedassetdisposalTest {
 
 
     @Test
+    public void runTest() throws Exception {
+        //step 1. create instance of the process
+        Map<String, Object> variables = new HashMap<String, Object>();
+        variables.put("newstring", new String());
+
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("accountant_Fixed_Asset_Disposal", variables);
+        String procID = processInstance.getId();
+        System.out.println("processInstance.getId()" + processInstance.getId());
+
+        ProcessDetails processDetails= new ProcessDetails();
+
+        com.cbody.cbody2 doc = com.cbody.cbody2.createDocument();
+        com.cbody.detailsType details = doc.details.append();
+        com.cbody.stepsType steps = details.steps.append();
+        com.cbody.nextstepType nextstep = steps.nextstep.append();
+        com.cbody.procidinstanceType procidinstance = nextstep.procidinstance.append();
+        procidinstance.setValue(procID);
+
+        List<Task> tasks = getTaskListTask(procID);
+        for(int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
+            com.cbody.taskidType taskid = nextstep.taskid.append();
+            taskid.setValue(task.getId());
+            com.cbody.tasknameType taskname = nextstep.taskname.append();
+            taskname.setValue(task.getName());
+            com.cbody.stepType step = nextstep.step.append();
+            step.setValue(task.getId());
+            com.cbody.useridType userid = nextstep.userid.append();
+            userid.setValue("testuser");
+            com.cbody.bflagType bflag = nextstep.bflag.append();
+            bflag.setValue("false");
+            com.cbody.completedType completed = nextstep.completed.append();
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String d = dateFormat.format(date);
+            completed.setValue(d);
+
+
+            System.out.println("task.getId():" + task.getId() + ", " + "task.getName():" + task.getName());
+        }
+
+        String s = doc.saveToString(true);
+        processDetails.setCbody(s);
+        processDetails.setProcidinstance(procID);
+        processDetails.setProcid("accountant_Fixed_Asset_Disposal");
+        processDetails = bpmRepository.save(processDetails);
+
+
+        //step 2. loop thru all the task node and simulate executed task node
+        do {
+            processDetails = bpmRepository.findOne(processDetails.getId());
+            doc = com.cbody.cbody2.loadFromString(processDetails.getCbody());
+            
+        }while (!checkProcessStatus(procID).equalsIgnoreCase("process finished"));
+
+
+
+    }
+
+
+
+
+
+
+    @Test
     public void testStartProcess() throws Exception {
+        testStartProcessTask();
+    }
+
+    public void testStartProcessTask() throws Exception {
 
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("newstring", new String());
@@ -114,7 +184,8 @@ public class fixedassetdisposalTest {
 
         String s = doc.saveToString(true);
         processDetails.setCbody(s);
-
+        processDetails.setProcidinstance(procID);
+        processDetails.setProcid("accountant_Fixed_Asset_Disposal");
         bpmRepository.save(processDetails);
 
     }
@@ -167,6 +238,25 @@ public class fixedassetdisposalTest {
             s = "process not finish";
         }
         System.out.println("process status: " + s);
+    }
+
+    public String checkProcessStatus(String procID) {
+        List<Task> tasks = taskService.createTaskQuery()
+                .processInstanceId(procID)
+                .orderByTaskName().asc()
+                .list();
+        String s = null;
+        if(tasks==null) {
+            s = "process finished";
+        }
+        if(tasks.size()< 1) {
+            s = "process finished";
+        }
+        if(tasks.size()>0) {
+            s = "process not finish";
+        }
+        System.out.println("process status: " + s);
+        return s;
     }
 
 }

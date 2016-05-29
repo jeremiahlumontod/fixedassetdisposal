@@ -14,6 +14,7 @@ import static javax.persistence.FetchType.LAZY;
 @Table(name="processdetails")
 public class ProcessDetails {
 
+
     @Id
     @GeneratedValue
     private Long id;
@@ -59,6 +60,14 @@ public class ProcessDetails {
 
     public void setCbody(String cbody) {
         this.cbody = cbody;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

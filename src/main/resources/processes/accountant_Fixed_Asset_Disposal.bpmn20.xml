@@ -8,7 +8,7 @@
         <userTask id="_3" name="2 | Facilities Manager">
             <documentation>2. Prepare a fixed asset disposal recommendation report.</documentation>
         </userTask>
-        <userTask id="_4" name="3 | Controller">
+        <userTask id="_4" name="3 | Controller | bflag">
             <documentation>3. Determine with the Facilities Manager the disposition of fixed assets in the fixed asset pool.
 
             </documentation>
@@ -35,7 +35,7 @@
         <userTask id="_10" name="8 | Accountant">
             <documentation>8. Return the original Fixed Asset Disposal forms to the Facilities Manager.</documentation>
         </userTask>
-        <userTask id="_11" name="9 | Facilities Manager">
+        <userTask id="_11" name="9 | Facilities Manager | bflag">
             <documentation>9. Obtain the required approvals.
 
             </documentation>
@@ -66,7 +66,7 @@
 
             </documentation>
         </userTask>
-        <userTask id="_18" name="15 | Facilities Manager">
+        <userTask id="_18" name="15 | Facilities Manager | bflag">
             <documentation>15.    Determine whether any fixed assets are being returned to production inventory.</documentation>
         </userTask>
         <exclusiveGateway id="_19" name="fixed assets are being returned to production inventory">
@@ -77,10 +77,10 @@
 
             </documentation>
         </userTask>
-        <userTask id="_21" name="17 | Facilities Manager">
+        <userTask id="_21" name="17 | Facilities Manager | bflag">
             <documentation>17.    Determine whether any fixed assets are being discarded.</documentation>
         </userTask>
-        <userTask id="_22" name="18 | Facilities Manager">
+        <userTask id="_22" name="18 | Facilities Manager | bflag">
             <documentation>18.    Determine the disposal method.
 
             </documentation>
@@ -96,7 +96,7 @@
         <exclusiveGateway id="_25" name="disposal services were used">
             <documentation>If disposal services were used, goto task #21. Otherwise, goto task #22.</documentation>
         </exclusiveGateway>
-        <userTask id="_26" name="20 | Facilities Manager">
+        <userTask id="_26" name="20 | Facilities Manager | bflag">
             <documentation>20.    Discard the fixed asset.
 
             </documentation>
@@ -119,7 +119,7 @@
 
             </documentation>
         </userTask>
-        <userTask id="_31" name="24 | Accountant">
+        <userTask id="_31" name="24 | Accountant | bflag">
             <documentation>24.    Update the fixed asset database.
 
             </documentation>
@@ -134,16 +134,16 @@
 
             </documentation>
         </userTask>
-        <userTask id="_34" name="Processing Manual Checks | subprocess">
+        <userTask id="_34" name="19.1 | Processing Manual Checks | subprocess">
             <documentation>Stop and complete Processing Manual Checks.</documentation>
         </userTask>
         <exclusiveGateway id="_35" name="fixed assets are being discarded">
             <documentation>If fixed assets are being discarded, goto task #18. Otherwise, goto task #22.</documentation>
         </exclusiveGateway>
-        <userTask id="_36" name="Processing Manual Journal Entries | subprocess">
+        <userTask id="_36" name="26.1 | Processing Manual Journal Entries | subprocess">
             <documentation>Goto Processing Manual Journal Entries, as needed.</documentation>
         </userTask>
-        <userTask id="_37" name="Miscellaneous Invoicing | sp">
+        <userTask id="_37" name="11.1 | Miscellaneous Invoicing | sp">
             <documentation>Stop and complete Miscellaneous Invoicing.</documentation>
         </userTask>
         <endEvent id="_38" name="end-state1"></endEvent>
@@ -233,7 +233,7 @@
             <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bflag == false}]]></conditionExpression>
         </sequenceFlow>
         <sequenceFlow id="_36-_44" sourceRef="_36" targetRef="_44"></sequenceFlow>
-        <userTask id="_20.1" name="Transferring Material - Nonproduction Use | subprocess">
+        <userTask id="_20.1" name="16.1 | Transferring Material - Nonproduction Use | subprocess">
             <documentation>Transferring Material - Nonproduction Use</documentation>
         </userTask>
         <sequenceFlow id="flow1" sourceRef="_20.1" targetRef="_40"></sequenceFlow>
@@ -373,7 +373,7 @@
                 <omgdc:Bounds height="48.0" width="48.0" x="584.0" y="3030.0"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="_20.1" id="BPMNShape__20.1">
-                <omgdc:Bounds height="55.0" width="240.0" x="80.0" y="1569.0"></omgdc:Bounds>
+                <omgdc:Bounds height="62.0" width="240.0" x="80.0" y="1569.0"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge bpmnElement="_1-_2" id="BPMNEdge__1-_2">
                 <omgdi:waypoint x="573.0" y="64.0"></omgdi:waypoint>
@@ -576,7 +576,7 @@
                 <omgdi:waypoint x="608.0" y="3030.0"></omgdi:waypoint>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
-                <omgdi:waypoint x="320.0" y="1596.0"></omgdi:waypoint>
+                <omgdi:waypoint x="320.0" y="1600.0"></omgdi:waypoint>
                 <omgdi:waypoint x="407.0" y="1600.0"></omgdi:waypoint>
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>

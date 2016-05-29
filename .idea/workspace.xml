@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be6c70d7-a6e1-4aaa-bc0e-3ff3ccbe950a" name="Default" comment="" />
+    <list default="true" id="be6c70d7-a6e1-4aaa-bc0e-3ff3ccbe950a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMApp.java" afterPath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/ProcessDetails.java" afterPath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/ProcessDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" afterPath="$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java" />
+    </list>
     <ignored path="fixedassetdisposal.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,8 +41,8 @@
       <file leaf-file-name="accountant_Fixed_Asset_Disposal.bpmn20.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="583" column="14" selection-start-line="583" selection-start-column="14" selection-end-line="583" selection-end-column="14" />
+            <state relative-caret-position="207">
+              <caret line="573" column="73" selection-start-line="573" selection-start-column="73" selection-end-line="573" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -46,23 +51,11 @@
       <file leaf-file-name="BPMApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="473">
+              <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1518#1991#0" expanded="true" />
-                <element signature="e#1990#1991#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fixedassetdisposal.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fixedassetdisposal.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -70,11 +63,60 @@
       <file leaf-file-name="fixedassetdisposalTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="125" column="12" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1999#2015#0" expanded="true" />
+                <element signature="e#2038#2054#0" expanded="true" />
+                <element signature="e#4736#4752#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IProcessNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/IProcessNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessNodeNonFlag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeNonFlag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#687#703#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessNodeFlag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeFlag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="34" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#815#831#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,14 +135,27 @@
       <file leaf-file-name="ProcessDetails.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/ProcessDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="368">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1356#1357#0" expanded="true" />
+                <element signature="e#1381#1382#0" expanded="true" />
+                <element signature="e#1415#1416#0" expanded="true" />
+                <element signature="e#1443#1444#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -119,15 +174,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/ApplicantRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BpmRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/IProcessNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/IProcessNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeFlag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeNonFlag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/ProcessDetails.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java" />
-        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -320,6 +380,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="fixedassetdisposal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fixedassetdisposal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fixedassetdisposal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fixedassetdisposal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="repository" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -342,7 +432,11 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/processes" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.jml.fixedassetdisposal" />
       <recent name="org.jml.fixedassetdisposal.repository" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -351,9 +445,6 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/processes" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.fixedassetdisposalTest.testStartProcess">
@@ -874,8 +965,8 @@
     <recent_temporary>
       <list size="3">
         <item index="0" class="java.lang.String" itemvalue="JUnit.fixedassetdisposalTest.testStartProcess" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.fixedassetdisposalTest.displayTaskList" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.fixedassetdisposalTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.fixedassetdisposalTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.fixedassetdisposalTest.displayTaskList" />
       </list>
     </recent_temporary>
   </component>
@@ -891,31 +982,13 @@
       <updated>1464431714017</updated>
       <workItem from="1464431717523" duration="967000" />
       <workItem from="1464433520314" duration="7571000" />
-      <workItem from="1464450059529" duration="7602000" />
+      <workItem from="1464450059529" duration="12431000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 32m 02s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 35m 50s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 41m 03s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 45m 19s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 55m 07s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 57m 39s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 20h 59m 05s.xml">
-      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    <history-entry file="fixedassetdisposalTest - 2016.05.30 at 00h 16m 34s.xml">
+      <configuration name="fixedassetdisposalTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 21h 03m 59s.xml">
       <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
@@ -926,9 +999,27 @@
     <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.28 at 21h 24m 48s.xml">
       <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.30 at 00h 17m 53s.xml">
+      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.30 at 00h 21m 29s.xml">
+      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.30 at 00h 22m 38s.xml">
+      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.30 at 00h 25m 05s.xml">
+      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.30 at 01h 08m 08s.xml">
+      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fixedassetdisposalTest_testStartProcess - 2016.05.30 at 01h 09m 18s.xml">
+      <configuration name="fixedassetdisposalTest.testStartProcess" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16140000" />
+    <option name="totallyTimeSpent" value="20969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -941,8 +1032,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19063005" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -999,8 +1090,6 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1518#1991#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1019,7 +1108,8 @@
           <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1999#2015#0" expanded="true" />
+            <element signature="e#2038#2054#0" expanded="true" />
+            <element signature="e#4736#4752#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1036,7 +1126,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1381#1382#0" expanded="true" />
+            <element signature="e#1415#1416#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,14 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="583" column="14" selection-start-line="583" selection-start-column="14" selection-end-line="583" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1085,18 +1173,6 @@
         <state relative-caret-position="247">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1518#1991#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1124,21 +1200,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="573" column="73" selection-start-line="573" selection-start-column="73" selection-end-line="573" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/BPMApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/IProcessNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeNonFlag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#687#703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeFlag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#815#831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/repository/ProcessDetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="368">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1381#1382#0" expanded="true" />
+            <element signature="e#1415#1416#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="222">
+          <caret line="125" column="12" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1999#2015#0" expanded="true" />
+            <element signature="e#2038#2054#0" expanded="true" />
+            <element signature="e#4736#4752#0" expanded="true" />
           </folding>
         </state>
       </provider>
