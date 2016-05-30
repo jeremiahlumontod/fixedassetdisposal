@@ -1,3 +1,3 @@
 # fixedassetdisposal
-spring boot, jpa, mysql, activiti
+spring boot, spring data jpa, mysql, activiti
 need to build cbody project

@@ -123,7 +123,7 @@ public class fixedassetdisposalTest {
         do {
             processDetails = bpmRepository.findOne(processDetails.getId());
             doc = com.cbody.cbody2.loadFromString(processDetails.getCbody());
-            
+
         }while (!checkProcessStatus(procID).equalsIgnoreCase("process finished"));
 
 
