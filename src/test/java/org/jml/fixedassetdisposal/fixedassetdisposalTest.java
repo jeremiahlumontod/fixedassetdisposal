@@ -123,7 +123,17 @@ public class fixedassetdisposalTest {
         do {
             processDetails = bpmRepository.findOne(processDetails.getId());
             doc = com.cbody.cbody2.loadFromString(processDetails.getCbody());
+            String processID = doc.details.first().steps.first().nextstep.first().procidinstance.first().getValue();
+            String taskID = doc.details.first().steps.first().nextstep.first().taskid.first().getValue();
+            String taskName = doc.details.first().steps.first().nextstep.first().taskname.first().getValue();
+            String bflag = doc.details.first().steps.first().nextstep.first().bflag.first().getValue();
 
+            new ProcessUtils().completeThisTask(processID,taskID);
+
+            /**
+             * todo: get next node id and name...update processDetails with that value
+             * then write to db thru jpa
+             */
         }while (!checkProcessStatus(procID).equalsIgnoreCase("process finished"));
 
 

@@ -15,15 +15,17 @@ public class ProcessNodeFlag implements IProcessNode{
     private TaskService taskService;
 
     @Override
-    public void completeThisTask(String procID, String taskID, String procName) {
-        String pname = new ProcessUtils().getProcessesName(procID);
+    public void completeThisTask(String procID, String taskID) {
+        String pname = new ProcessUtils().getTaskName(procID,taskID);
         if(pname!=null) {
             String[] aname = ProcessUtils.splitString(pname,"\\|");
             if(aname.length>2) { //flag is at 3rd element
-                String bflag = aname[2]; //array is based zero
+                String bflag = aname[2].trim(); //array is based zero
                 Map<String, Object> taskVariables = new HashMap<String, Object>();
                 if(bflag.equalsIgnoreCase("bflag")) {
                     taskVariables.put("bflag", "true");
+                }else{
+                    taskVariables.put("bflag", "false");
                 }
                 Task task = taskService.createTaskQuery()
                         .processInstanceId(procID)

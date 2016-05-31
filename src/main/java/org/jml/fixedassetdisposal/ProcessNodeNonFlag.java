@@ -16,13 +16,14 @@ public class ProcessNodeNonFlag implements IProcessNode{
     private TaskService taskService;
 
     @Override
-    public void completeThisTask(String procID, String taskID, String procName) {
+    public void completeThisTask(String procID, String taskID) {
         Task task = taskService.createTaskQuery()
                 .processInstanceId(procID)
                 .taskId(taskID)
                 .singleResult();
 
         Map<String, Object> taskVariables = new HashMap<String, Object>();
+        taskVariables.put("bflag", "false");
         taskService.complete(task.getId(), taskVariables);
         System.out.println("completeTelephoneInterviewTask for process:" + procID + ", " + "task id:" + taskID + " executed...");
 
