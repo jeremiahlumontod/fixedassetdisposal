@@ -147,14 +147,14 @@
             <documentation>Stop and complete Miscellaneous Invoicing.</documentation>
         </userTask>
         <endEvent id="_38" name="end-state1"></endEvent>
-        <parallelGateway id="_39" name="Gateway-15 Facilities Manager">
+        <exclusiveGateway id="_39" name="Gateway-15 Facilities Manager">
             <documentation>If fixed assets are being returned to production inventory, goto task #16. Otherwise, goto task #17.</documentation>
-        </parallelGateway>
-        <parallelGateway id="_40" name="Gateway-17 Facilities Manager"></parallelGateway>
-        <parallelGateway id="_41" name="Gateway-20 Facilities Manager"></parallelGateway>
-        <parallelGateway id="_42" name="Gateway-22 Facilities Manager"></parallelGateway>
-        <parallelGateway id="_43" name="Gateway-26 Accountant"></parallelGateway>
-        <parallelGateway id="_44" name="Gateway-end-state1"></parallelGateway>
+        </exclusiveGateway>
+        <exclusiveGateway id="_40" name="Gateway-17 Facilities Manager"></exclusiveGateway>
+        <exclusiveGateway id="_41" name="Gateway-20 Facilities Manager"></exclusiveGateway>
+        <exclusiveGateway id="_42" name="Gateway-22 Facilities Manager"></exclusiveGateway>
+        <exclusiveGateway id="_43" name="Gateway-26 Accountant"></exclusiveGateway>
+        <exclusiveGateway id="_44" name="Gateway-end-state1"></exclusiveGateway>
         <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2"></sequenceFlow>
         <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3"></sequenceFlow>
         <sequenceFlow id="_3-_4" sourceRef="_3" targetRef="_4"></sequenceFlow>

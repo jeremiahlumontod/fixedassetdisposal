@@ -128,12 +128,60 @@ public class fixedassetdisposalTest {
             String taskName = doc.details.first().steps.first().nextstep.first().taskname.first().getValue();
             String bflag = doc.details.first().steps.first().nextstep.first().bflag.first().getValue();
 
-            new ProcessUtils().completeThisTask(processID,taskID);
+
+            completeThisTask(processID,taskID);
 
             /**
              * todo: get next node id and name...update processDetails with that value
-             * then write to db thru jpa
+             * then write to db thru jpa. there is no parallel task so its safe
+             * to think that only one node will be picked up at any given time
              */
+
+            String p = getNextTaskInfo(processID);
+            if (p == null) {
+                break;
+            }
+            String[] ap = ProcessUtils.splitString(p,"=");
+            taskID = ap[0];
+            taskName = ap[1];
+
+            /**
+             * create new document
+             *
+             */
+
+            doc = com.cbody.cbody2.createDocument();
+            details = doc.details.append();
+            steps = details.steps.append();
+            nextstep = steps.nextstep.append();
+            procidinstance = nextstep.procidinstance.append();
+            procidinstance.setValue(processID);
+
+
+            com.cbody.taskidType taskid = nextstep.taskid.append();
+            taskid.setValue(taskID);
+            com.cbody.tasknameType taskname = nextstep.taskname.append();
+            taskname.setValue(taskName);
+            com.cbody.stepType step = nextstep.step.append();
+            step.setValue(taskID);
+            com.cbody.useridType userid = nextstep.userid.append();
+            userid.setValue("testuser");
+            com.cbody.bflagType bflagElement = nextstep.bflag.append();
+            bflagElement.setValue("false");
+            com.cbody.completedType completed = nextstep.completed.append();
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String d = dateFormat.format(date);
+            completed.setValue(d);
+
+            String cbody = doc.saveToString(true);
+            processDetails= new ProcessDetails();
+            processDetails.setCbody(cbody);
+            processDetails.setProcidinstance(procID);
+            processDetails.setProcid("accountant_Fixed_Asset_Disposal");
+            processDetails = bpmRepository.save(processDetails);
+
         }while (!checkProcessStatus(procID).equalsIgnoreCase("process finished"));
 
 
@@ -267,6 +315,75 @@ public class fixedassetdisposalTest {
         }
         System.out.println("process status: " + s);
         return s;
+    }
+
+
+
+    public String getProcessesName(String procID) {
+        HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery().processInstanceId(procID).singleResult();
+        String n = null;
+        if (historicProcessInstance != null) {
+            n = historicProcessInstance.getName();
+        }
+        return n;
+    }
+
+    public static String[] splitString(String s, String splitter) {
+        String[] a = s.split(splitter);
+        return a;
+    }
+
+    public void completeThisTask(String procID, String taskID) {
+        String pname = getTaskName(procID,taskID);
+        if(pname!=null) {
+            String[] aname = ProcessUtils.splitString(pname,"\\|");
+            if(aname.length>2) { //flag is at 3rd element
+                String bflag = aname[2].trim(); //array is based zero
+                String procName = getProcessesName(procID);
+                if(bflag.equalsIgnoreCase("bflag")) {
+                    IProcessNode processNode = new ProcessNodeFlag();
+                    processNode.completeThisTask(procID,taskID,taskService);
+                }else{
+                    IProcessNode processNode = new ProcessNodeNonFlag();
+                    processNode.completeThisTask(procID,taskID,taskService);
+                }
+            }else if(aname.length==2) {
+                String procName = getProcessesName(procID);
+                IProcessNode processNode = new ProcessNodeNonFlag();
+                processNode.completeThisTask(procID,taskID,taskService);
+            }
+        }
+    }
+
+    public String getTaskName(String procID, String taskID) {
+        Task task = taskService.createTaskQuery()
+                .processInstanceId(procID).taskId(taskID)
+                .orderByTaskName().asc()
+                .singleResult();
+
+        if(task!=null) {
+            return task.getName();
+        }else{
+            return null;
+        }
+    }
+
+
+    public String getNextTaskInfo(String procID) {
+
+        List<Task> tasks = taskService.createTaskQuery()
+                .processInstanceId(procID)
+                .orderByTaskName().asc()
+                .list();
+        String s = null;
+        if(tasks!=null) {
+            try {
+                s = tasks.get(0).getId() + "=" + tasks.get(0).getName();
+            }catch(Exception e) {
+            }
+        }
+        return s;
+
     }
 
 }

@@ -1,0 +1,7 @@
+org/jml/fixedassetdisposal/repository/ProcessDetails.class
+org/jml/fixedassetdisposal/ProcessNodeNonFlag.class
+org/jml/fixedassetdisposal/repository/BPMApp.class
+org/jml/fixedassetdisposal/ProcessUtils.class
+org/jml/fixedassetdisposal/IProcessNode.class
+org/jml/fixedassetdisposal/repository/BpmRepository.class
+org/jml/fixedassetdisposal/ProcessNodeFlag.class

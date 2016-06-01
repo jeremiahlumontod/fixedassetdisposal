@@ -12,11 +12,8 @@ import java.util.Map;
  */
 public class ProcessNodeNonFlag implements IProcessNode{
 
-    @Autowired
-    private TaskService taskService;
-
     @Override
-    public void completeThisTask(String procID, String taskID) {
+    public void completeThisTask(String procID, String taskID, TaskService taskService) {
         Task task = taskService.createTaskQuery()
                 .processInstanceId(procID)
                 .taskId(taskID)
@@ -25,7 +22,7 @@ public class ProcessNodeNonFlag implements IProcessNode{
         Map<String, Object> taskVariables = new HashMap<String, Object>();
         taskVariables.put("bflag", "false");
         taskService.complete(task.getId(), taskVariables);
-        System.out.println("completeTelephoneInterviewTask for process:" + procID + ", " + "task id:" + taskID + " executed...");
+        System.out.println("completeThisTask for process:" + procID + ", " + "task id:" + taskID + ", task name: " + task.getName() + " executed...");
 
     }
 }

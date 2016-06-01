@@ -11,12 +11,12 @@ import java.util.Map;
  * Created by jml on 5/30/16.
  */
 public class ProcessNodeFlag implements IProcessNode{
-    @Autowired
-    private TaskService taskService;
 
     @Override
-    public void completeThisTask(String procID, String taskID) {
-        String pname = new ProcessUtils().getTaskName(procID,taskID);
+    public void completeThisTask(String procID, String taskID, TaskService taskService) {
+        ProcessUtils p = new ProcessUtils();
+        p.setTaskService(taskService);
+        String pname = p.getTaskName(procID,taskID);
         if(pname!=null) {
             String[] aname = ProcessUtils.splitString(pname,"\\|");
             if(aname.length>2) { //flag is at 3rd element
@@ -32,7 +32,7 @@ public class ProcessNodeFlag implements IProcessNode{
                         .taskId(taskID)
                         .singleResult();
                 taskService.complete(task.getId(), taskVariables);
-                System.out.println("completeTelephoneInterviewTask for process:" + procID + ", " + "task id:" + taskID + " executed...");
+                System.out.println("completeThisTask for process:" + procID + ", " + "task id:" + taskID + ", task name: " + pname + " executed...");
             }
         }
 
