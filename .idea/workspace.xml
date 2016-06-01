@@ -2,20 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be6c70d7-a6e1-4aaa-bc0e-3ff3ccbe950a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/IProcessNode.class" afterPath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/IProcessNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessNodeFlag.class" afterPath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessNodeFlag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessNodeNonFlag.class" afterPath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessNodeNonFlag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessUtils.class" afterPath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/repository/ProcessDetails.class" afterPath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/repository/ProcessDetails.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/org/jml/fixedassetdisposal/fixedassetdisposalTest.class" afterPath="$PROJECT_DIR$/target/test-classes/org/jml/fixedassetdisposal/fixedassetdisposalTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/IProcessNode.java" afterPath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/IProcessNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeFlag.java" afterPath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeFlag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeNonFlag.java" afterPath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessNodeNonFlag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessUtils.java" afterPath="$PROJECT_DIR$/src/main/java/org/jml/fixedassetdisposal/ProcessUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" afterPath="$PROJECT_DIR$/src/main/resources/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/jml/fixedassetdisposal/fixedassetdisposalTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" afterPath="$PROJECT_DIR$/target/classes/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/IProcessNode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessNodeFlag.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessNodeNonFlag.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/ProcessUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/repository/BPMApp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/repository/BpmRepository.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/jml/fixedassetdisposal/repository/ProcessDetails.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/processes/accountant_Fixed_Asset_Disposal.bpmn20.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fixedassetdisposal-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fixedassetdisposal-1.0-SNAPSHOT.jar.original" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/org/jml/fixedassetdisposal/fixedassetdisposalTest.class" afterPath="" />
     </list>
     <ignored path="fixedassetdisposal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -974,7 +977,7 @@
       <workItem from="1464450059529" duration="17206000" />
       <workItem from="1464730746988" duration="3977000" />
       <workItem from="1464815840652" duration="1298000" />
-      <workItem from="1464817154994" duration="3756000" />
+      <workItem from="1464817154994" duration="3871000" />
     </task>
     <servers />
   </component>
@@ -1011,11 +1014,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34775000" />
+    <option name="totallyTimeSpent" value="34890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
