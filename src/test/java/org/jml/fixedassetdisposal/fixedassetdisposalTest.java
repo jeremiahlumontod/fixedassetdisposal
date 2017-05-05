@@ -96,7 +96,9 @@ public class fixedassetdisposalTest {
         
         //an array of all the task for this process instance
         //this will always return one task since 
-        //the BPM/activiti will return list of unfinished task
+        //the BPM/activiti will return list of unfinished task 
+        //but there is always one task to do in this case not unless
+        //we will do parallel task, but this process dont have a parallel task
         List<Task> tasks = getTaskListTask(procID);
         for(int i = 0; i < tasks.size(); i++) {
             Task task = tasks.get(i); //single task instance from process instance
