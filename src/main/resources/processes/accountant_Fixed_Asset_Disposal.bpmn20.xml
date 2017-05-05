@@ -143,7 +143,7 @@
         <userTask id="_36" name="26.1 | Processing Manual Journal Entries | subprocess">
             <documentation>Goto Processing Manual Journal Entries, as needed.</documentation>
         </userTask>
-        <userTask id="_37" name="11.1 | Miscellaneous Invoicing | sp">
+        <userTask id="_37" name="11.1 | Miscellaneous Invoicing | subprocess">
             <documentation>Stop and complete Miscellaneous Invoicing.</documentation>
         </userTask>
         <endEvent id="_38" name="end-state1"></endEvent>

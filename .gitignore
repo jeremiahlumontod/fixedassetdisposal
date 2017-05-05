@@ -1,1 +1,6 @@
-/target/
+/target
+/bin
+.DS_Store
+.idea/**
+src/.DS_Store
+

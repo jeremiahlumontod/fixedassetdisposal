@@ -4,6 +4,7 @@ import org.activiti.engine.HistoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricProcessInstance;
+import org.activiti.engine.history.HistoricTaskInstanceQuery;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.jml.fixedassetdisposal.repository.BPMApp;
@@ -72,9 +73,10 @@ public class fixedassetdisposalTest {
     @Test
     public void runTest() throws Exception {
         //step 1. create instance of the process
+    	System.out.println("step 1. create instance of the process");
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("newstring", new String());
-
+        //all bpm process files should be place in src/main/resources/processes
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("accountant_Fixed_Asset_Disposal", variables);
         String procID = processInstance.getId();
         System.out.println("processInstance.getId(): " + processInstance.getId());
@@ -84,6 +86,8 @@ public class fixedassetdisposalTest {
         //object model for extended data    
         com.cbody.cbody2 doc = com.cbody.cbody2.createDocument();
         com.cbody.detailsType details = doc.details.append();
+        com.cbody.descriptionType description = details.description.append();
+        description.setValue("test fixed asset disposal: " + new Date());
         com.cbody.stepsType steps = details.steps.append();
         com.cbody.nextstepType nextstep = steps.nextstep.append();
         com.cbody.procidinstanceType procidinstance = nextstep.procidinstance.append();
@@ -91,6 +95,8 @@ public class fixedassetdisposalTest {
         //end, jpa. table for extended data
         
         //an array of all the task for this process instance
+        //this will always return one task since 
+        //the BPM/activiti will return list of unfinished task
         List<Task> tasks = getTaskListTask(procID);
         for(int i = 0; i < tasks.size(); i++) {
             Task task = tasks.get(i); //single task instance from process instance
@@ -112,7 +118,7 @@ public class fixedassetdisposalTest {
             completed.setValue(d);
 
 
-            System.out.println("step 1: procID: " + procID + ", task.getId():" + task.getId() + ", " + "task.getName():" + task.getName());
+            System.out.println("step 1.1 get first task: procID: " + procID + ", task.getId():" + task.getId() + ", " + "task.getName():" + task.getName());
         }
 
         String s = doc.saveToString(true);
@@ -161,6 +167,8 @@ public class fixedassetdisposalTest {
             //re-initialize the extended data
             doc = com.cbody.cbody2.createDocument();
             details = doc.details.append();
+            description = details.description.append();
+            description.setValue("test fixed asset disposal: " + new Date());
             steps = details.steps.append();
             nextstep = steps.nextstep.append();
             procidinstance = nextstep.procidinstance.append();
@@ -327,7 +335,7 @@ public class fixedassetdisposalTest {
         return s;
     }
 
-
+    
 
     public String getProcessesName(String procID) {
         HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery().processInstanceId(procID).singleResult();
@@ -395,5 +403,6 @@ public class fixedassetdisposalTest {
         return s;
 
     }
-
+    
+    
 }
