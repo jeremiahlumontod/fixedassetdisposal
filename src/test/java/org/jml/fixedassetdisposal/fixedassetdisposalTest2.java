@@ -1,10 +1,12 @@
 package org.jml.fixedassetdisposal;
 
 import org.activiti.engine.HistoryService;
+import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricProcessInstance;
 import org.activiti.engine.history.HistoricTaskInstanceQuery;
+import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.jml.fixedassetdisposal.repository.BPMApp;
@@ -47,6 +49,9 @@ public class fixedassetdisposalTest2 {
     @Autowired
     private BPMRepository bpmRepository;
 
+    @Autowired
+    private RepositoryService repositoryService;
+    
     private Wiser wiser;
 
     @Before
@@ -79,6 +84,14 @@ public class fixedassetdisposalTest2 {
     }
 
 
+    @Test
+    public void showList() {
+    	List<Deployment> deployments = repositoryService.createDeploymentQuery().list();
+    	for(Deployment deployment: deployments) {
+    		System.out.println("deployment.getName(): " + deployment.getId() + "-" + deployment.getName());
+    	}
+    }
+    
     @Test
     public void runTest2() throws Exception {
         //step 1. create instance of the process
