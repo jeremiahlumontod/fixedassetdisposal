@@ -2,5 +2,6 @@
 /bin
 .DS_Store
 .idea/**
+*.iml
 src/.DS_Store
 
