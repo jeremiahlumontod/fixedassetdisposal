@@ -2,6 +2,10 @@
 /bin
 .DS_Store
 .idea/**
-*.iml
 src/.DS_Store
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
